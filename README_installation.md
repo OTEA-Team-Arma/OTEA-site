@@ -1,3 +1,32 @@
+# Structure du projet
+
+```
+/css           → Feuilles de style
+/js            → Scripts JS (dont script.js, mission-config.js)
+/img           → Images (logo, fond, casque, etc.)
+/video         → Vidéos
+/data          → Fichiers de données (mission.json, last_mission_id.txt)
+/php           → Scripts PHP (update-mission.php)
+/python        → Scripts Python (OTEA_sentinelle.py)
+Dockerfile         → Pour le site web (Nginx + PHP-FPM)
+Dockerfile-python  → Pour le script sentinelle
+docker-compose.yml → Orchestration des deux services
+index.html
+```
+
+## mission.json (exemple)
+
+```json
+{
+	"titre": "CAMPAGNE CHIMERA - arma 3 - 09/01/2026",
+	"description": "Description de la mission...",
+	"date": "09/01/2026",
+	"heure": "21H00",
+	"lienBriefing": "https://otea.forum-pro.fr/t2641-campagne-chimera-arma-3-09-01-2026",
+	"status": "MISSION ACTIVE"
+}
+```
+
 # Guide d'installation OTEA-site & OTEA_sentinelle (Docker)
 
 Ce guide explique comment déployer le site web OTEA et le script Python OTEA_sentinelle.py dans des conteneurs Docker séparés sur un serveur Linux.

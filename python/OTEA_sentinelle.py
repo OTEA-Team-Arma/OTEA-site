@@ -6,8 +6,9 @@ import re
 from datetime import datetime, timedelta
 
 # --- CONFIGURATION ---
+# --- CONFIGURATION ---
 RSS_URL = "https://otea.forum-pro.fr/feed/?f=15"
-JSON_FILE = "mission.json"
+JSON_FILE = "../data/mission.json"
 # COLLE TON URL DE WEBHOOK DISCORD CI-DESSOUS
 
 # Définir l'URL du webhook Discord
@@ -109,7 +110,7 @@ def monitor_forum():
                             mission_vendredi = (date_mission, entry)
             # On mémorise l'ID de la mission envoyée pour ne pas spammer Discord
             try:
-                with open('last_mission_id.txt', 'r') as f:
+                with open('../data/last_mission_id.txt', 'r') as f:
                     last_mission_id = f.read().strip()
             except Exception:
                 last_mission_id = ""
@@ -131,7 +132,7 @@ def monitor_forum():
                 update_mission_json(mission_to_send.title, mission_to_send.summary, mission_to_send.published_parsed)
                 if mission_id != last_mission_id:
                     send_to_discord(mission_to_send.title, mission_to_send.summary, mission_to_send.link, mission_to_send.published_parsed)
-                    with open('last_mission_id.txt', 'w') as f:
+                    with open('../data/last_mission_id.txt', 'w') as f:
                         f.write(mission_id)
             else:
                 print("[DEBUG] Aucune mission trouvée pour cette semaine. Mode stand-by.")

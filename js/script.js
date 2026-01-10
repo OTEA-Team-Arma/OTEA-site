@@ -27,8 +27,8 @@ document.addEventListener('DOMContentLoaded', () => {
 
 // Fonction pour charger la mission
 function chargerMissionHebdo() {
-    console.log('Chargement de la mission depuis mission.json...');
-    fetch('mission.json')
+    console.log('Chargement de la mission depuis data/mission.json...');
+    fetch('data/mission.json')
         .then(response => {
             if (!response.ok) throw new Error('Fichier mission.json non trouvé');
             return response.json();

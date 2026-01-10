@@ -54,8 +54,9 @@ const MISSION = {
 // ============================================
 JS;
 
-// Sauvegarder dans mission-config.js
-$result = file_put_contents('mission-config.js', $jsContent);
+
+// Sauvegarder dans js/mission-config.js
+$result = file_put_contents('../js/mission-config.js', $jsContent);
 
 if ($result === false) {
     http_response_code(500);
