@@ -1,3 +1,15 @@
+# Relation entre mission.json, le script Python et le site web
+
+Le fichier mission.json est le point de liaison entre le script Python (OTEA_sentinelle.py) et le site web :
+
+- **Le script Python** écrit et met à jour mission.json avec les informations de la mission récupérées sur le forum.
+- **Le site web** lit mission.json (via JavaScript) pour afficher dynamiquement la mission en cours à l’utilisateur.
+
+**Lien technique :**
+- Si mission.json est partagé via un volume Docker (cas B), toute modification faite par le script Python est immédiatement visible par le site web.
+- Si mission.json est dans le conteneur Python (cas A), le site doit accéder au fichier via une API ou un mécanisme d’export.
+
+Ce système garantit que les informations affichées sur le site sont toujours synchronisées avec les dernières missions publiées sur le forum.
 # Structure du projet OTEA
 
 ```
