@@ -1,3 +1,44 @@
+# Utilisation de Docker pour déployer le site OTEA
+
+Ce guide explique comment lancer ce site web dans un conteneur Docker avec Apache et PHP.
+
+## 1. Créez un fichier `Dockerfile` à la racine du projet :
+
+```
+# Utilise une image officielle Apache avec PHP
+FROM php:8.2-apache
+
+# Copie tout le contenu du site dans le dossier web d'Apache
+COPY . /var/www/html/
+
+# Active le module rewrite d'Apache (optionnel)
+RUN a2enmod rewrite
+
+# Donne les bons droits (optionnel)
+RUN chown -R www-data:www-data /var/www/html
+
+EXPOSE 80
+```
+
+## 2. Construisez l'image Docker :
+
+```sh
+docker build -t otea-site .
+```
+
+## 3. Lancez le conteneur :
+
+```sh
+docker run -d -p 8080:80 --name otea-site otea-site
+```
+
+Le site sera accessible sur http://localhost:8080
+
+---
+
+- Pour modifier le site, éditez les fichiers puis relancez le build.
+- Pour la partie Python, il faudra un conteneur séparé ou adapter ce Dockerfile.
+- Pour la base de données (si besoin), ajoutez un service (ex: MariaDB) dans un `docker-compose.yml`.
 # 📑 Documentation Système OTEA Sentinel v2.1
 
 Ce système assure l'interconnexion automatique entre le forum, le site web (HUD), Discord et WhatsApp.
