@@ -1,0 +1,440 @@
+@media (max-width: 900px) {
+    .otea-interface {
+        flex-direction: column;
+        align-items: center;
+        justify-content: flex-start;
+    }
+    .server-info-panel,
+    .mission-panel {
+        position: static;
+        width: 90vw;
+        margin: 10px auto;
+        left: auto; right: auto; top: auto; transform: none;
+    }
+    .visor-container,
+    .helmet-wireframe {
+        width: 60vw;
+        height: auto;
+        max-width: 317px;
+        max-height: 399px;
+    }
+    .content-overlay {
+        width: 100vw;
+        height: auto;
+        padding-bottom: 30px;
+    }
+    .ui-elements {
+        position: static;
+        margin-top: 20px;
+        bottom: auto;
+    }
+    .otea-logo {
+        width: 100px;
+    }
+    .top-nav {
+        flex-direction: column;
+        gap: 10px;
+        padding: 10px 5vw;
+    }
+}
+body {
+    margin: 0;
+    overflow: hidden;
+    font-family: 'Courier New', Courier, monospace;
+    color: #fff;
+    background-color: #000;
+}
+
+/* NAVIGATION HAUTE */
+.top-nav {
+    position: absolute;
+    top: 0;
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 15px 30px;
+    z-index: 100;
+    background: linear-gradient(to bottom, rgba(0,0,0,0.8), transparent);
+    box-sizing: border-box;
+}
+
+.nav-left {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+}
+
+.small-logo { 
+    height: 70px;
+    filter: drop-shadow(0 0 5px #00FF00); 
+    transition: transform 0.3s ease;
+}
+
+.small-logo:hover {
+    transform: scale(1.1);
+}
+
+/* INDICATEUR RECRUTEMENT */
+.recruitment-badge {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    padding: 8px 15px;
+    background: rgba(0, 255, 0, 0.1);
+    border: 1px solid #00FF00;
+    color: #00FF00;
+    font-size: 0.75em;
+    font-weight: bold;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    box-shadow: 0 0 10px rgba(0, 255, 0, 0.3);
+    animation: glow 2s ease-in-out infinite;
+}
+
+.pulse-dot {
+    width: 8px;
+    height: 8px;
+    background: #00FF00;
+    border-radius: 50%;
+    box-shadow: 0 0 5px #00FF00;
+    animation: pulse 1.5s ease-in-out infinite;
+}
+
+@keyframes pulse {
+    0%, 100% { opacity: 1; transform: scale(1); }
+    50% { opacity: 0.3; transform: scale(0.8); }
+}
+
+@keyframes glow {
+    0%, 100% { box-shadow: 0 0 10px rgba(0, 255, 0, 0.3); }
+    50% { box-shadow: 0 0 20px rgba(0, 255, 0, 0.6); }
+}
+
+.nav-right { display: flex; gap: 25px; }
+
+.nav-btn {
+    background: transparent;
+    border: none;
+    color: rgba(255, 255, 255, 0.7);
+    font-size: 0.85em;
+    cursor: pointer;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    transition: 0.3s;
+    border-bottom: 1px solid transparent;
+}
+
+.nav-btn:hover { color: #00FF00; border-bottom: 1px solid #00FF00; }
+
+/* INTERFACE CENTRALE */
+.otea-interface {
+    position: relative;
+    width: 100vw; height: 100vh;
+    display: flex; justify-content: center; align-items: center;
+}
+
+.background-img {
+    position: absolute;
+    width: 100%; height: 100%;
+    object-fit: cover;
+    filter: brightness(0.5);
+    z-index: 1;
+}
+
+.content-overlay {
+    position: absolute;
+    width: 100%; height: 100%;
+    display: flex; flex-direction: column;
+    justify-content: center; align-items: center;
+    z-index: 2;
+}
+
+.helmet-wireframe {
+    position: absolute;
+    width: 317px;
+    height: 399px;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 3;
+}
+
+.ui-elements {
+    display: flex; flex-direction: column;
+    align-items: center; position: absolute; bottom: 5%;
+}
+
+.synchronization-box { text-align: center; margin-bottom: 15px; color: #00FF00; }
+
+.progress-bar {
+    width: 300px; height: 6px;
+    background: rgba(255,255,255,0.1);
+    border: 1px solid #00FF00;
+}
+
+.progress-fill { height: 100%; width: 0%; background: #00FF00; box-shadow: 0 0 10px #00FF00; }
+
+.briefing-button {
+    padding: 12px 25px; background: transparent;
+    border: 2px solid #00FF00; color: #00FF00;
+    cursor: pointer; font-weight: bold; margin-bottom: 15px;
+}
+
+.briefing-button:hover {
+    background: rgba(0, 255, 0, 0.2);
+    box-shadow: 0 0 15px rgba(0, 255, 0, 0.5);
+}
+
+/* BOUTON SERVEUR */
+.server-button {
+    padding: 12px 30px;
+    background: rgba(0, 255, 0, 0.15);
+    border: 2px solid #00FF00;
+    color: #00FF00;
+    cursor: pointer;
+    font-weight: bold;
+    margin-bottom: 15px;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    transition: all 0.3s ease;
+    font-family: 'Courier New', Courier, monospace;
+}
+
+.server-button:hover {
+    background: rgba(0, 255, 0, 0.3);
+    box-shadow: 0 0 20px rgba(0, 255, 0, 0.7);
+    transform: scale(1.05);
+}
+
+/* PANNEAU SERVEUR */
+.server-info-panel {
+    position: absolute;
+    right: 5%;
+    top: 20%;
+    width: 320px;
+    background: rgba(0, 20, 0, 0.85);
+    border: 1px solid #00FF41;
+    padding: 15px;
+    box-shadow: 0 0 20px rgba(0, 255, 65, 0.3);
+    z-index: 10;
+    font-family: 'Courier New', Courier, monospace;
+}
+
+.server-header {
+    color: #00FF41;
+    font-weight: bold;
+    font-size: 0.85em;
+    letter-spacing: 2px;
+    margin-bottom: 12px;
+    text-align: center;
+    border-bottom: 1px solid #00FF41;
+    padding-bottom: 8px;
+    text-shadow: 0 0 5px rgba(0, 255, 65, 0.5);
+}
+
+.server-content {
+    color: rgba(255, 255, 255, 0.9);
+    font-size: 0.8em;
+    line-height: 1.5;
+}
+
+.server-status {
+    color: #00FF41;
+    font-weight: bold;
+    font-size: 0.9em;
+    margin: 8px 0;
+    animation: pulse 2s ease-in-out infinite;
+}
+
+.server-status::before {
+    content: '●';
+    margin-right: 5px;
+    font-size: 1.2em;
+    text-shadow: 0 0 8px #00FF41;
+}
+
+.server-name {
+    color: rgba(255, 255, 255, 0.95);
+    font-size: 0.85em;
+    margin: 8px 0;
+    font-weight: bold;
+}
+
+.server-mode {
+    color: rgba(0, 255, 65, 0.7);
+    font-size: 0.8em;
+    margin: 8px 0;
+    font-style: italic;
+}
+
+/* PANNEAU MISSION */
+.mission-panel {
+    position: absolute;
+    left: 5%;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 320px;
+    background: rgba(0, 20, 0, 0.85);
+    border: 1px solid #00FF41;
+    padding: 20px;
+    box-shadow: 0 0 20px rgba(0, 255, 65, 0.3);
+    z-index: 10;
+    font-family: 'Courier New', Courier, monospace;
+}
+
+.mission-header {
+    color: #00FF41;
+    font-weight: bold;
+    font-size: 0.9em;
+    letter-spacing: 2px;
+    margin-bottom: 15px;
+    text-align: center;
+    border-bottom: 1px solid #00FF41;
+    padding-bottom: 10px;
+    text-shadow: 0 0 5px rgba(0, 255, 65, 0.5);
+}
+
+.mission-content {
+    color: rgba(255, 255, 255, 0.9);
+    font-size: 0.85em;
+    line-height: 1.6;
+}
+
+.mission-status {
+    color: #00FF41;
+    font-weight: bold;
+    font-size: 0.85em;
+    letter-spacing: 1px;
+    margin: 10px 0;
+    padding: 8px;
+    text-align: center;
+    border: 1px solid #00FF41;
+    background: rgba(0, 255, 65, 0.1);
+    animation: glow 2s ease-in-out infinite;
+}
+
+.mission-status.standby {
+    color: #FFA500;
+    border-color: #FFA500;
+    background: rgba(255, 165, 0, 0.1);
+    animation: glowOrange 2s ease-in-out infinite;
+}
+
+@keyframes glowOrange {
+    0%, 100% { box-shadow: 0 0 5px rgba(255, 165, 0, 0.3); }
+    50% { box-shadow: 0 0 15px rgba(255, 165, 0, 0.6); }
+}
+
+.mission-title {
+    color: #00FF41;
+    font-weight: bold;
+    font-size: 1.1em;
+    margin: 10px 0;
+    text-shadow: 0 0 3px rgba(0, 255, 65, 0.5);
+}
+
+.mission-date {
+    color: rgba(0, 255, 65, 0.7);
+    font-size: 0.8em;
+    margin: 5px 0;
+}
+
+.mission-desc {
+    color: rgba(255, 255, 255, 0.8);
+    margin-top: 10px;
+    font-size: 0.85em;
+}
+
+.mission-briefing-btn {
+    width: 100%;
+    padding: 10px 15px;
+    margin-top: 15px;
+    background: rgba(0, 255, 65, 0.1);
+    border: 1px solid #00FF41;
+    color: #00FF41;
+    cursor: pointer;
+    font-weight: bold;
+    font-size: 0.75em;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    font-family: 'Courier New', Courier, monospace;
+    transition: all 0.3s ease;
+}
+
+.mission-briefing-btn:hover {
+    background: rgba(0, 255, 65, 0.2);
+    box-shadow: 0 0 15px rgba(0, 255, 65, 0.5);
+    transform: scale(1.02);
+}
+
+.otea-logo { width: 160px; }
+
+/* FENÊTRES MODALES */
+.modal-overlay {
+    position: fixed; top: 0; left: 0; width: 100%; height: 100%;
+    background: rgba(0,0,0,0.85); z-index: 200;
+    display: flex; justify-content: center; align-items: center;
+}
+
+.modal-content {
+    background: rgba(10, 20, 10, 0.95);
+    border: 1px solid #00FF00;
+    padding: 40px; width: 60%; max-width: 600px;
+    position: relative; box-shadow: 0 0 20px rgba(0,255,0,0.2);
+}
+
+.close-btn {
+    position: absolute; top: 10px; right: 20px;
+    font-size: 25px; color: #00FF00; cursor: pointer;
+}
+
+.hidden { display: none !important; }
+
+.contact-item {
+    display: inline-block;
+    color: #00FF00;
+    text-decoration: none;
+    border: 1px dashed #00FF00;
+    padding: 10px 15px;
+    margin: 5px 0;
+    background: rgba(0, 255, 0, 0.05);
+    transition: all 0.3s ease;
+    width: 100%;
+    box-sizing: border-box;
+    text-align: center;
+    font-family: 'Courier New', Courier, monospace;
+}
+
+.contact-item:hover {
+    background: rgba(0, 255, 0, 0.2);
+    box-shadow: 0 0 10px rgba(0, 255, 0, 0.5);
+    transform: scale(1.02);
+}
+
+/* --- CALIBRAGE VIDÉO VISIÈRE --- */
+.visor-container {
+    position: absolute;
+    width: 317px;
+    height: 399px;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 2;
+    pointer-events: none;
+}
+
+.visor-video {
+        mask-image: url('masque.png');
+        mask-size: 100% 100%;
+        mask-repeat: no-repeat;
+        mask-position: center  -20px;
+        -webkit-mask-image: url('masque.png');
+        -webkit-mask-size: 100% 100%;
+        -webkit-mask-repeat: no-repeat;
+        -webkit-mask-position: center  -20px;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    filter: opacity(0.9) sepia(80%) saturate(2.5) hue-rotate(90deg) brightness(1.3) contrast(1.1);
+}
