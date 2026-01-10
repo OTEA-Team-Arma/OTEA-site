@@ -4,25 +4,80 @@ Ce guide explique comment déployer le site web OTEA et le script Python OTEA_se
 
 ---
 
-## 1. Déploiement du site web (Apache + PHP)
 
-### a. Créez un fichier `Dockerfile` à la racine du projet :
+## 1. Déploiement du site web (Nginx + PHP-FPM)
+
+### a. Créez deux fichiers à la racine du projet :
+
+#### `Dockerfile`
 ```
-FROM php:8.2-apache
-COPY . /var/www/html/
-RUN a2enmod rewrite
-RUN chown -R www-data:www-data /var/www/html
+FROM nginx:1.25-alpine AS nginx
+FROM php:8.2-fpm-alpine AS php
+
+# Copie le code source dans les deux images
+WORKDIR /var/www/html
+COPY . /var/www/html
+
+# Prépare Nginx
+FROM nginx:1.25-alpine
+COPY --from=php /var/www/html /var/www/html
+COPY nginx.conf /etc/nginx/nginx.conf
 EXPOSE 80
+CMD ["nginx", "-g", "daemon off;"]
 ```
 
-### b. Construisez l'image Docker :
-```sh
-docker build -t otea-site .
+#### `nginx.conf`
+```
+events {}
+http {
+		server {
+				listen 80;
+				server_name _;
+				root /var/www/html;
+				index index.php index.html;
+
+				location / {
+						try_files $uri $uri/ =404;
+				}
+
+				location ~ \.php$ {
+						fastcgi_pass   php:9000;
+						fastcgi_index  index.php;
+						fastcgi_param  SCRIPT_FILENAME $document_root$fastcgi_script_name;
+						include        fastcgi_params;
+				}
+		}
+}
 ```
 
-### c. Lancez le conteneur :
+### b. Créez un fichier `docker-compose.yml` :
+```
+version: '3.8'
+services:
+	nginx:
+		build: .
+		ports:
+			- "8080:80"
+		depends_on:
+			- php
+		volumes:
+			- .:/var/www/html
+		networks:
+			- otea-net
+	php:
+		image: php:8.2-fpm-alpine
+		volumes:
+			- .:/var/www/html
+		networks:
+			- otea-net
+networks:
+	otea-net:
+		driver: bridge
+```
+
+### c. Lancez le site :
 ```sh
-docker run -d -p 8080:80 --name otea-site otea-site
+docker-compose up -d
 ```
 
 Le site sera accessible sur http://localhost:8080
