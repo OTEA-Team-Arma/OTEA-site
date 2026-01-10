@@ -16,6 +16,14 @@ services:
       - .:/var/www/html
     networks:
       - otea-net
+  python:
+    build:
+      context: .
+      dockerfile: Dockerfile-python
+    volumes:
+      - .:/app
+    networks:
+      - otea-net
 networks:
   otea-net:
     driver: bridge

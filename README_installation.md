@@ -84,6 +84,7 @@ Le site sera accessible sur http://localhost:8080
 
 ---
 
+
 ## 2. Déploiement du script Python OTEA_sentinelle.py
 
 ### a. Créez un fichier `Dockerfile-python` à la racine du projet :
@@ -95,22 +96,52 @@ RUN pip install feedparser requests
 CMD ["python", "OTEA_sentinelle.py"]
 ```
 
-### b. Construisez l'image Docker :
-```sh
-docker build -f Dockerfile-python -t otea-sentinelle .
+### b. Le fichier `docker-compose.yml` inclut maintenant le service Python :
+```
+version: '3.8'
+services:
+	nginx:
+		build: .
+		ports:
+			- "8080:80"
+		depends_on:
+			- php
+		volumes:
+			- .:/var/www/html
+		networks:
+			- otea-net
+	php:
+		image: php:8.2-fpm-alpine
+		volumes:
+			- .:/var/www/html
+		networks:
+			- otea-net
+	python:
+		build:
+			context: .
+			dockerfile: Dockerfile-python
+		volumes:
+			- .:/app
+		networks:
+			- otea-net
+networks:
+	otea-net:
+		driver: bridge
 ```
 
-### c. Lancez le conteneur :
+### c. Lancez tous les services ensemble :
 ```sh
-docker run -d --name otea-sentinelle otea-sentinelle
+docker-compose up -d
 ```
+
+Le site web et le script Python tourneront simultanément dans des conteneurs séparés.
 
 ---
 
 ## 3. Conseils
-- Les deux conteneurs sont indépendants et peuvent tourner sur le même serveur.
+- Les trois conteneurs (nginx, php, python) sont indépendants et peuvent tourner sur le même serveur.
 - Pour la persistance de mission.json, utilisez un volume Docker si besoin.
-- Pour la base de données, ajoutez un service dans un `docker-compose.yml`.
+- Pour la base de données, ajoutez un service dans le `docker-compose.yml`.
 - Pour relancer le script Python automatiquement, voir la section systemd du README principal.
 
 ---

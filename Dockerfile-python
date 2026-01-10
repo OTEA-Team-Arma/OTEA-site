@@ -1,0 +1,5 @@
+FROM python:3.11-slim
+WORKDIR /app
+COPY OTEA_sentinelle.py mission.json ./
+RUN pip install feedparser requests
+CMD ["python", "OTEA_sentinelle.py"]
