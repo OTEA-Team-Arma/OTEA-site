@@ -1,3 +1,84 @@
+.server-info-panel-with-recrutement {
+    position: absolute;
+    right: 5%;
+    top: 20%;
+    width: 320px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    z-index: 10;
+}
+.server-info-panel-with-recrutement .server-info-panel {
+    position: static;
+    width: 100%;
+    margin-bottom: 0;
+}
+.recruitment-badge-centered {
+    margin: 18px 0 10px 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border: 1px solid #00FF00;
+    background: rgba(0, 255, 0, 0.05);
+    color: #00FF00;
+    font-size: 0.95em;
+    font-weight: bold;
+    letter-spacing: 1px;
+    width: fit-content;
+    padding: 6px 18px;
+    border-radius: 8px;
+    box-shadow: 0 0 8px rgba(0,255,0,0.15);
+}
+.recruitment-badge-centered {
+    margin: 20px auto 10px auto;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border: 1px solid #00FF00;
+    background: rgba(0, 255, 0, 0.05);
+    color: #00FF00;
+    font-size: 0.95em;
+    font-weight: bold;
+    letter-spacing: 1px;
+    width: fit-content;
+    padding: 6px 18px;
+    border-radius: 8px;
+    box-shadow: 0 0 8px rgba(0,255,0,0.15);
+}
+.recruitment-badge-standalone {
+    margin-top: 20px;
+    margin-bottom: 10px;
+    display: flex;
+    justify-content: flex-end;
+    width: 100%;
+}
+.nav-right-top {
+    position: absolute;
+    top: 0;
+    right: 30px;
+    display: flex;
+    gap: 25px;
+    z-index: 101;
+}
+/* Groupe de logos dans le header */
+.logo-group {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+}
+
+.small-logo3 {
+    height: 200px;
+    margin-top: 5px;
+    filter: drop-shadow(0 0 5px #00FF00);
+}
+
+/* Décalage de l'encart mission de la semaine */
+.mission-panel-offset {
+    margin-top: 40px;
+}
 @media (max-width: 900px) {
     .otea-interface {
         flex-direction: column;
@@ -271,8 +352,8 @@ body {
 /* PANNEAU MISSION */
 .mission-panel {
     position: absolute;
-    left: 5%;
-    top: 50%;
+    left: 10%;
+    top: 60%;
     transform: translateY(-50%);
     width: 320px;
     background: rgba(0, 20, 0, 0.85);
@@ -425,11 +506,11 @@ body {
 }
 
 .visor-video {
-        mask-image: url('masque.png');
+        mask-image: url('img/masque.png');
         mask-size: 100% 100%;
         mask-repeat: no-repeat;
         mask-position: center  -20px;
-        -webkit-mask-image: url('masque.png');
+        -webkit-mask-image: url('img/masque.png');
         -webkit-mask-size: 100% 100%;
         -webkit-mask-repeat: no-repeat;
         -webkit-mask-position: center  -20px;

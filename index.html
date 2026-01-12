@@ -9,17 +9,16 @@
 </head>
 <body>
     <header class="top-nav">
-        <div class="nav-left">
-            <img src="img/logo2.png" alt="Logo OTEA Sec" class="small-logo">
-            <div class="recruitment-badge">
-                <span class="pulse-dot"></span>
-                RECRUTEMENT OUVERT
-            </div>
-        </div>
-        <div class="nav-right">
+        <div class="nav-right nav-right-top">
             <button class="nav-btn" onclick="openModal('team')">LA TEAM</button>
             <button class="nav-btn" onclick="openModal('recrutement')">RECRUTEMENT</button>
             <button class="nav-btn" onclick="openModal('contact')">CONTACT</button>
+        </div>
+        <div class="nav-left">
+            <div class="logo-group">
+                <img src="img/logo2.png" alt="Logo OTEA Sec" class="small-logo">
+                <img src="img/logo3.png" alt="Logo OTEA 3" class="small-logo3">
+            </div>
         </div>
     </header>
 
@@ -42,16 +41,34 @@
                 <img src="img/casque.png" alt="Helmet" class="helmet-wireframe">
 
                 <div class="content-overlay">
-            <div class="server-info-panel">
-                <div class="server-header">[ SERVEUR PUBLIC ACTIF ]</div>
-                <div class="server-content">
-                    <p class="server-status">● EN LIGNE</p>
-                    <p class="server-name">[FR] [OTEA] guerre Froide - vue FPS</p>
-                    <p class="server-mode">Conflit: Commandant de QG - Kolgouiev</p>
+                        <div class="ui-elements">
+                            <div class="synchronization-box">
+                                <p class="sync-text">SYNCHRONISATION..... <span id="sync-percent">0</span>%</p>
+                                <div class="progress-bar">
+                                    <div class="progress-fill" id="sync-fill"></div>
+                                </div>
+                            </div>
+                            <button id="server-button" class="server-button">[ CONNECT TO TEAMSPEAK ]</button>
+                            <button id="briefing-button" class="briefing-button hidden">[ NOUS REJOINDRE ]</button>
+                            <img src="img/logo.png" alt="Logo OTEA" class="otea-logo">
+                        </div>
+            <div class="server-info-panel-with-recrutement">
+                <div class="server-info-panel">
+                    <div class="server-header">[ SERVEUR PUBLIC ACTIF ]</div>
+                    <div class="server-content">
+                        <p class="server-status">● EN LIGNE</p>
+                        <p class="server-name">[FR] [OTEA] guerre Froide - vue FPS</p>
+                        <p class="server-mode">Conflit: Commandant de QG - Kolgouiev</p>
+                    </div>
+                </div>
+                <div class="recruitment-badge recruitment-badge-centered">
+                    <span class="pulse-dot"></span>
+                    RECRUTEMENT OUVERT
                 </div>
             </div>
+            </div>
 
-            <div class="mission-panel">
+            <div class="mission-panel mission-panel-offset">
                 <div class="mission-header">[ MISSION DE LA SEMAINE ]</div>
                 <div class="mission-content">
                     <p class="mission-status" id="mission-status">CHARGEMENT...</p>
@@ -65,7 +82,7 @@
             </div>
 
             <img src="img/casque.png" alt="Helmet" class="helmet-wireframe">
-            
+
             <div class="ui-elements">
                 <div class="synchronization-box">
                     <p class="sync-text">SYNCHRONISATION..... <span id="sync-percent">0</span>%</p>
@@ -73,11 +90,8 @@
                         <div class="progress-fill" id="sync-fill"></div>
                     </div>
                 </div>
-                
                 <button id="server-button" class="server-button">[ CONNECT TO TEAMSPEAK ]</button>
-                
-                <button id="briefing-button" class="briefing-button hidden">[ REJOINDRE LE BRIEFING ]</button>
-                
+                <button id="briefing-button" class="briefing-button hidden">[ NOUS REJOINDRE ]</button>
                 <img src="img/logo.png" alt="Logo OTEA" class="otea-logo">
             </div>
         </div>
