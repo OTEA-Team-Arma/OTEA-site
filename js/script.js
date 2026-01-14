@@ -1,4 +1,28 @@
+// --- COMPTEUR DE VUES ---
+function initViewCounter() {
+    let views = localStorage.getItem('otea-views');
+    if (!views) {
+        views = 1;
+    } else {
+        views = parseInt(views) + 1;
+    }
+    localStorage.setItem('otea-views', views);
+    document.getElementById('view-count').textContent = views;
+}
+
+// --- MENU HAMBURGER MOBILE ---
+function toggleMobileMenu() {
+    const nav = document.getElementById('mobile-nav');
+    if (nav.style.display === 'flex') {
+        nav.style.display = 'none';
+    } else {
+        nav.style.display = 'flex';
+    }
+}
 document.addEventListener('DOMContentLoaded', () => {
+    // Initialiser le compteur de vues
+    initViewCounter();
+
     let percent = 0;
     const syncPercent = document.getElementById('sync-percent');
     const syncFill = document.getElementById('sync-fill');

@@ -1,3 +1,247 @@
+/* Décalage du bloc mission-panel vers la droite (version PC) */
+.mission-panel.mission-panel-offset {
+    position: absolute;
+    right: 5%;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 320px;
+}
+
+.logo3-below-header {
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    align-items: flex-start;
+    margin-left: 30px;
+    margin-top: 0;
+    z-index: 10;
+}
+.small-logo3 {
+    height: 60px !important;
+    margin: 0 0 0 10px !important;
+    display: block !important;
+    filter: drop-shadow(0 0 5px #00FF00);
+    vertical-align: middle;
+}
+/* --- Correction alignement horizontal header --- */
+header.top-nav {
+    display: flex !important;
+    flex-direction: row !important;
+    align-items: flex-start !important;
+    justify-content: space-between !important;
+    padding-top: 10px !important;
+}
+.nav-left {
+    display: flex !important;
+    align-items: flex-start !important;
+    height: 70px !important;
+    gap: 0 !important;
+}
+.small-logo {
+    height: 60px !important;
+    margin: 0 10px 0 0 !important;
+    display: block !important;
+}
+.nav-right.nav-right-top, .nav-right-top {
+    display: flex !important;
+    align-items: flex-start !important;
+    gap: 10px !important;
+    margin-top: 0 !important;
+    position: static !important;
+}
+/* --- MENU HAMBURGER MOBILE --- */
+.hamburger {
+    display: none;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 40px;
+    height: 40px;
+    background: transparent;
+    border: none;
+    cursor: pointer;
+    z-index: 200;
+    position: absolute;
+    top: 10px;
+    right: 10px;
+}
+.hamburger span {
+    display: block;
+    width: 28px;
+    height: 4px;
+    margin: 4px 0;
+    background: #00FF00;
+    border-radius: 2px;
+    transition: 0.3s;
+}
+.mobile-nav {
+    display: none;
+    flex-direction: column;
+    position: absolute;
+    top: 60px;
+    right: 10px;
+    background: rgba(0,0,0,0.95);
+    border: 1px solid #00FF00;
+    box-shadow: 0 0 10px #00FF00;
+    z-index: 201;
+    padding: 15px 20px;
+    border-radius: 8px;
+}
+.mobile-nav-btn {
+    background: none;
+    border: none;
+    color: #00FF00;
+    font-size: 1em;
+    margin: 10px 0;
+    font-family: inherit;
+    cursor: pointer;
+    text-align: left;
+    letter-spacing: 1px;
+}
+.mobile-nav-btn:active, .mobile-nav-btn:focus {
+    color: #fff;
+}
+@media (max-width: 900px) {
+    body {
+        overflow: auto !important;
+    }
+    /* Bloc mission-panel : descendre sous le bouton NOUS REJOINDRE */
+    .mission-panel.mission-panel-offset {
+        position: static !important;
+        right: auto !important;
+        top: auto !important;
+        left: auto !important;
+        transform: none !important;
+        margin: 80px auto 0 auto !important;
+        width: 95vw !important;
+        max-width: 350px !important;
+        display: block !important;
+        visibility: visible !important;
+        z-index: 5 !important;
+    }
+    .ui-elements {
+        display: flex !important;
+        flex-direction: column !important;
+        align-items: center !important;
+    }
+    .ui-elements > .mission-panel {
+        order: 99 !important;
+        margin: 100px auto 0 auto !important;
+        align-self: center !important;
+        max-width: 350px;
+        width: 95vw !important;
+    }
+    /* Bloc serveur public : sous la mission de la semaine */
+    .server-info-panel-with-recrutement {
+        position: static !important;
+        right: auto !important;
+        top: auto !important;
+        width: 95vw !important;
+        max-width: 350px !important;
+        margin: 40px auto 0 auto !important;
+        display: flex !important;
+        flex-direction: column !important;
+        align-items: center !important;
+    }
+            .otea-interface {
+                display: flex !important;
+                flex-direction: column !important;
+            }
+        .small-logo3 {
+            height: 60px !important;
+            width: auto !important;
+            margin: 8px 0 0 0 !important;
+            display: block !important;
+            align-self: flex-start !important;
+        }
+    /* Header mobile : logo2 tout en haut, hamburger à gauche */
+    header.top-nav {
+        flex-direction: column !important;
+        align-items: stretch !important;
+        padding: 0 !important;
+        min-height: unset !important;
+    }
+    .logo-group {
+        flex-direction: column !important;
+        align-items: center !important;
+        justify-content: flex-start !important;
+        width: 100%;
+        margin: 0;
+        padding: 0;
+        position: relative;
+    }
+    .hamburger {
+        display: flex !important;
+        position: absolute !important;
+        top: 0;
+        right: 0;
+        margin: 8px 8px 0 0 !important;
+        z-index: 20;
+    }
+    .small-logo {
+        width: 100vw !important;
+        max-width: 100vw !important;
+        height: auto !important;
+        margin: 0 !important;
+        display: block !important;
+    }
+    .nav-right-top, .nav-right.nav-right-top {
+        display: none !important;
+    }
+    .mobile-nav {
+        display: none !important;
+        flex-direction: column;
+        align-items: flex-start;
+        position: absolute !important;
+        background: rgba(0,0,0,0.95) !important;
+        border: 1px solid #00FF00 !important;
+        box-shadow: 0 0 10px #00FF00 !important;
+        padding: 15px 20px !important;
+        margin: 55px 0 0 10px !important;
+        z-index: 202;
+    }
+    .mobile-nav[style*="display: flex"] {
+        display: flex !important;
+    }
+    .mobile-nav-btn {
+        color: #00FF00;
+        font-size: 1.1em;
+        margin: 8px 0;
+        padding: 0;
+    }
+    .otea-interface {
+        flex-direction: column !important;
+        align-items: center !important;
+        justify-content: flex-start !important;
+    }
+    .visor-container {
+        margin: 0 auto 0 auto !important;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        width: 100vw !important;
+        max-width: 320px;
+        height: auto !important;
+    }
+    .visor-video {
+        width: 100% !important;
+        height: auto !important;
+        display: block !important;
+    }
+    .ui-elements {
+        margin: 0 auto 0 auto !important;
+        width: 100vw !important;
+        max-width: 320px;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+    .mission-panel {
+        margin: 20px auto 0 auto !important;
+        width: 95vw !important;
+        max-width: 350px;
+    }
+}
 .server-info-panel-with-recrutement {
     position: absolute;
     right: 5%;
@@ -70,8 +314,9 @@
 }
 
 .small-logo3 {
-    height: 200px;
-    margin-top: 5px;
+    height: 120px !important;
+    margin: 8px 0 0 0 !important;
+    display: block !important;
     filter: drop-shadow(0 0 5px #00FF00);
 }
 
@@ -92,17 +337,32 @@
         margin: 10px auto;
         left: auto; right: auto; top: auto; transform: none;
     }
-    .visor-container,
-    .helmet-wireframe {
-        width: 60vw;
-        height: auto;
-        max-width: 317px;
-        max-height: 399px;
+    .server-info-panel-with-recrutement {
+        position: static !important;
+        right: auto !important;
+        top: auto !important;
+        width: 80vw !important;
+        max-width: 180px !important;
+        margin: 0 auto 30px auto !important;
+        display: flex !important;
+        flex-direction: column !important;
+        align-items: center !important;
+        justify-content: center !important;
+        z-index: 10 !important;
+        font-size: 0.75em !important;
+        order: -1 !important;
+    }
+    .server-info-panel-with-recrutement .server-info-panel {
+        font-size: 0.85em !important;
     }
     .content-overlay {
-        width: 100vw;
-        height: auto;
-        padding-bottom: 30px;
+        position: static !important;
+        width: 100vw !important;
+        height: auto !important;
+        padding-bottom: 30px !important;
+        display: flex !important;
+        flex-direction: column !important;
+        align-items: center !important;
     }
     .ui-elements {
         position: static;
@@ -518,4 +778,25 @@ body {
     height: 100%;
     object-fit: cover;
     filter: opacity(0.9) sepia(80%) saturate(2.5) hue-rotate(90deg) brightness(1.3) contrast(1.1);
+}
+/* Compteur de vues discret */
+.view-counter {
+    position: fixed;
+    bottom: 10px;
+    right: 15px;
+    font-size: 0.8em;
+    color: #00FF00;
+    opacity: 0.5;
+    font-family: 'Courier New', Courier, monospace;
+    z-index: 999;
+    pointer-events: none;
+    letter-spacing: 1px;
+}
+
+@media (max-width: 900px) {
+    .view-counter {
+        bottom: 5px;
+        right: 10px;
+        font-size: 0.7em;
+    }
 }
