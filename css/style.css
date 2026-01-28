@@ -216,16 +216,24 @@ header.top-nav {
     }
     .visor-container {
         margin: 0 auto 0 auto !important;
-        display: flex;
-        justify-content: center;
-        align-items: center;
+        display: block !important;
         width: 100vw !important;
         max-width: 320px;
-        height: auto !important;
+        height: 399px !important; /* Fixe la hauteur pour le masque vidéo */
+        position: relative;
+        mask-image: url('../img/masque.png');
+        mask-size: 100% 100%;
+        mask-repeat: no-repeat;
+        mask-position: center  -20px;
+        -webkit-mask-image: url('../img/masque.png');
+        -webkit-mask-size: 100% 100%;
+        -webkit-mask-repeat: no-repeat;
+        -webkit-mask-position: center  -20px;
+        overflow: hidden;
     }
     .visor-video {
         width: 100% !important;
-        height: auto !important;
+        height: 399px !important;
         display: block !important;
     }
     .ui-elements {
@@ -763,21 +771,28 @@ body {
     transform: translate(-50%, -50%);
     z-index: 2;
     pointer-events: none;
+    display: block;
+    mask-image: url('../img/masque.png');
+    mask-size: 100% 100%;
+    mask-repeat: no-repeat;
+    mask-position: center  -20px;
+    -webkit-mask-image: url('../img/masque.png');
+    -webkit-mask-size: 100% 100%;
+    -webkit-mask-repeat: no-repeat;
+    -webkit-mask-position: center  -20px;
+    overflow: hidden;
 }
 
 .visor-video {
-        mask-image: url('img/masque.png');
-        mask-size: 100% 100%;
-        mask-repeat: no-repeat;
-        mask-position: center  -20px;
-        -webkit-mask-image: url('img/masque.png');
-        -webkit-mask-size: 100% 100%;
-        -webkit-mask-repeat: no-repeat;
-        -webkit-mask-position: center  -20px;
     width: 100%;
-    height: 100%;
+    height: 399px;
     object-fit: cover;
     filter: opacity(0.9) sepia(80%) saturate(2.5) hue-rotate(90deg) brightness(1.3) contrast(1.1);
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: 2;
+}
 }
 /* Compteur de vues discret */
 .view-counter {
